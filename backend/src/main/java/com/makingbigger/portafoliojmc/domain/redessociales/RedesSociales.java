@@ -1,6 +1,6 @@
 package com.makingbigger.portafoliojmc.domain.redessociales;
 
-import com.makingbigger.portafoliojmc.domain.informacionersonal.InformacionPersonal;
+import com.makingbigger.portafoliojmc.domain.informacionpersonal.InformacionPersonal;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

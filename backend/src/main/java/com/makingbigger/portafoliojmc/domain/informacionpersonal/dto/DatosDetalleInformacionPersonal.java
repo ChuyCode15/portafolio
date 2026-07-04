@@ -1,8 +1,7 @@
-package com.makingbigger.portafoliojmc.domain.informacionersonal.dto;
+package com.makingbigger.portafoliojmc.domain.informacionpersonal.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.makingbigger.portafoliojmc.domain.informacionersonal.InformacionPersonal;
-import com.makingbigger.portafoliojmc.domain.redessociales.RedesSociales;
+import com.makingbigger.portafoliojmc.domain.redessociales.dto.DatosDetalleRedesSociales;
 
 import java.util.List;
 
@@ -19,7 +18,7 @@ public record DatosDetalleInformacionPersonal(
         @JsonProperty("photoUrl") String urlFoto,
         @JsonProperty("resumeUrl") String urlCv,
         @JsonProperty("availableFor") String disponibilidad,
-        @JsonProperty("socialLinks") List<RedesSociales> redesSociales
+        @JsonProperty("socialLinks") List<DatosDetalleRedesSociales> redesSociales
 
 ) {
 

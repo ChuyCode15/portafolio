@@ -1,4 +1,4 @@
-package com.makingbigger.portafoliojmc.domain.informacionersonal;
+package com.makingbigger.portafoliojmc.domain.informacionpersonal;
 
 import com.makingbigger.portafoliojmc.domain.redessociales.RedesSociales;
 import jakarta.persistence.*;
@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 import java.util.UUID;
 
-@Table(name = "redes_sociales")
+@Table(name = "informacion_personal")
 @Entity
 @Data
 @NoArgsConstructor
@@ -32,6 +32,6 @@ public class InformacionPersonal {
     private String urlCv;
     private String disponibilidad;
 
-    @OneToMany(mappedBy = "redesSociales", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "perfil", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<RedesSociales> redesSociales;
 }

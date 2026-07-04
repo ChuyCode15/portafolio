@@ -1,7 +1,6 @@
 package com.makingbigger.portafoliojmc.controller;
 
-import com.makingbigger.portafoliojmc.domain.informacionersonal.InformacionPersonal;
-import com.makingbigger.portafoliojmc.domain.informacionersonal.dto.DatosDetalleInformacionPersonal;
+import com.makingbigger.portafoliojmc.domain.informacionpersonal.dto.DatosDetalleInformacionPersonal;
 import com.makingbigger.portafoliojmc.services.InformacionPersonalService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -14,8 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 
 public class InformacionPersonalController {
-
-    private final InformacionPersonal informacionPersonal;
 
     private final InformacionPersonalService informacionPersonalService;
 

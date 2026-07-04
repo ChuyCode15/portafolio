@@ -1,7 +1,7 @@
 package com.makingbigger.portafoliojmc.services;
 
-import com.makingbigger.portafoliojmc.domain.informacionersonal.dto.DatosDetalleInformacionPersonal;
-import com.makingbigger.portafoliojmc.domain.informacionersonal.informacionpersonalmapper.InformacionPersonalMapper;
+import com.makingbigger.portafoliojmc.domain.informacionpersonal.dto.DatosDetalleInformacionPersonal;
+import com.makingbigger.portafoliojmc.domain.informacionpersonal.informacionpersonalmapper.InformacionPersonalMapper;
 import com.makingbigger.portafoliojmc.repository.InformacionPersonalRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -16,12 +16,11 @@ public class InformacionPersonalService {
 
 
     public DatosDetalleInformacionPersonal buscarInformacionPersonal() {
-
-        var informacionP = informacionPersonalRepository.findAll()
+        return informacionPersonalRepository.findAllWithRedes()
                 .stream()
                 .findFirst()
                 .map(informacionPersonalMapper::toDto)
                 .orElseThrow(() -> new RuntimeException("No encontrado"));
-        return informacionP;
+
     }
 }
