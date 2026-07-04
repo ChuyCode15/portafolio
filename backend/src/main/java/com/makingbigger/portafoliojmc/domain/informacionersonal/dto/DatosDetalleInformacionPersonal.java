@@ -23,25 +23,5 @@ public record DatosDetalleInformacionPersonal(
 
 ) {
 
-    public DatosDetalleInformacionPersonal(InformacionPersonal datos) {
-
-        this(
-                datos.getNombre(),
-                datos.getApellido(),
-                datos.getTitulo(),
-                datos.getSubtitulo(),
-                datos.getResumen(),
-                datos.getCorreoElectronico(),
-                datos.getTelefono(),
-                datos.getUbicacion(),
-                datos.getUrlFoto(),
-                datos.getUrlCv(),
-                datos.getDisponibilidad(),
-                datos.getRedesSociales().stream()
-                        .map(RedesSociales::new)
-                        .toList()
-                );
-
-    }
 
 }
