@@ -1,0 +1,178 @@
+@use 'styles/abstracts' as *;
+
+.about {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: $color-bg-primary;
+  overflow: hidden;
+  padding: $section-padding-y $section-padding-x;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(to right, transparent, $color-border-accent, transparent);
+  }
+
+  &__bg {
+    position: absolute; inset: 0;
+    background-image: var(--bg-url);
+    background-size: cover; background-position: center;
+    opacity: 0.04; pointer-events: none;
+  }
+
+  &__container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+    position: relative; z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem; width: 100%;
+    @include tablet { grid-template-columns: 1fr; gap: 3rem; }
+  }
+
+  &__left,
+  &__right {
+    opacity: 0;
+    transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1);
+  }
+  &__left  { transform: translateX(-50px); }
+  &__right { transform: translateX(50px); transition-delay: 0.15s; }
+
+  &__left--visible,
+  &__right--visible { opacity: 1; transform: none; }
+
+  &__description {
+    color: rgba(255,255,255,0.65);
+    line-height: 1.9; font-size: 1rem;
+    font-family: $font-body; margin-bottom: 2rem;
+  }
+
+  &__contact-row {
+    display: flex; align-items: center; gap: 1rem; margin-bottom: 0.75rem;
+  }
+  &__contact-key {
+    font-family: $font-mono; color: $color-accent;
+    font-size: 0.75rem; min-width: 65px; flex-shrink: 0;
+  }
+  &__contact-val {
+    color: $color-text-muted; font-family: $font-body;
+    font-size: 0.88rem; word-break: break-all;
+  }
+
+  &__stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
+  &__stat {
+    padding: 1.2rem;
+    border: 1px solid $color-border-accent-dim;
+    border-radius: $radius-md;
+    background: $color-accent-subtle;
+    text-align: center;
+    opacity: 0; transform: translateY(20px);
+    transition: background $transition-fast, border-color $transition-fast, opacity 0.6s, transform 0.6s;
+    cursor: default;
+    &--visible { opacity: 1; transform: none; }
+    &:hover { background: rgba(109,179,63,0.08); border-color: rgba(109,179,63,0.4); }
+  }
+  &__stat-value {
+    font-family: $font-mono; font-size: 1.8rem;
+    color: $color-accent; font-weight: 700;
+  }
+  &__stat-label {
+    font-family: $font-body; color: $color-text-faint;
+    font-size: 0.72rem; margin-top: 4px;
+  }
+
+  &__stack-label {
+    display: block; font-family: $font-mono; color: $color-accent;
+    font-size: 0.75rem; letter-spacing: 4px; margin-bottom: 1.2rem;
+  }
+
+  &__category-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  &__category-tab {
+    font-family: $font-mono;
+    font-size: 0.65rem;
+    padding: 0.35rem 0.75rem;
+    border: 1px solid $color-border;
+    border-radius: $radius-sm;
+    background: transparent;
+    color: $color-text-faint;
+    cursor: pointer;
+    transition: $transition-fast;
+    white-space: nowrap;
+
+    &:hover {
+      border-color: $color-accent-dim;
+      color: $color-accent;
+    }
+
+    &--active {
+      background: $color-accent-glow;
+      border-color: $color-accent;
+      color: $color-accent;
+    }
+  }
+
+  &__skills-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  &__skill-item {
+    padding: 0.6rem 0;
+  }
+
+  &__skill-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.4rem;
+  }
+
+  &__skill-icon {
+    width: 18px;
+    font-size: 0.95rem;
+    text-align: center;
+  }
+
+  &__skill-name {
+    font-family: $font-mono;
+    font-size: 0.78rem;
+    color: $color-text-muted;
+    flex: 1;
+  }
+
+  &__skill-level {
+    font-family: $font-mono;
+    font-size: 0.7rem;
+    color: $color-text-faint;
+  }
+
+  &__skill-bar {
+    height: 4px;
+    background: $color-border;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  &__skill-bar-fill {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 1s cubic-bezier(0.16,1,0.3,1) 0.5s;
+    width: 0;
+  }
+
+  &__right--visible &__skill-bar-fill {
+    width: var(--skill-width, 0%);
+  }
+
+  @include tablet { padding: $section-padding-y 1.5rem; }
+}

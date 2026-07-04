@@ -1,0 +1,162 @@
+@use 'styles/abstracts' as *;
+
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: $z-navbar;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 3rem;
+  transition: $transition-smooth;
+
+  &--scrolled {
+    background: rgba(5, 8, 20, 0.92);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid $color-accent-glow;
+  }
+
+  &__logo {
+    font-family: $font-mono;
+    color: $color-accent;
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    cursor: default;
+    position: relative;
+    z-index: $z-navbar + 1;
+  }
+
+  // ── Desktop links ──────────────────────────────────────────────
+  &__links {
+    display: flex;
+    gap: 2.5rem;
+
+    @include tablet { display: none; }
+  }
+
+  &__link {
+    font-family: $font-mono;
+    font-size: 0.78rem;
+    letter-spacing: 1.5px;
+    color: $color-text-muted;
+    padding-bottom: 3px;
+    border-bottom: 1px solid transparent;
+    transition: $transition-fast;
+    text-decoration: none;
+
+    &:hover,
+    &--active {
+      color: $color-accent;
+      border-bottom-color: $color-accent;
+    }
+  }
+
+  // ── Hamburger button ───────────────────────────────────────────
+  &__hamburger {
+    display: none;
+
+    @include tablet {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 36px;
+      height: 36px;
+      padding: 4px;
+      background: transparent;
+      border: 1px solid $color-accent-dim;
+      border-radius: $radius-sm;
+      cursor: pointer;
+      position: relative;
+      z-index: $z-navbar + 1;
+      transition: border-color 0.3s;
+
+      &:hover { border-color: $color-accent; }
+
+      span {
+        display: block;
+        width: 100%;
+        height: 1.5px;
+        background: $color-text-muted;
+        border-radius: 2px;
+        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                    opacity 0.25s ease,
+                    background 0.3s;
+        transform-origin: center;
+      }
+
+      &--open {
+        border-color: $color-accent;
+
+        span:nth-child(1) { transform: translateY(6.5px) rotate(45deg);  background: $color-accent; }
+        span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); background: $color-accent; }
+      }
+    }
+  }
+
+  @include tablet { padding: 1rem 1.5rem; }
+}
+
+// ── Mobile drawer ──────────────────────────────────────────────────
+.navbar__drawer {
+  display: none;
+
+  @include tablet {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0; right: 0;
+    width: min(75vw, 280px);
+    height: 100dvh;
+    background: rgba(5, 8, 20, 0.97);
+    backdrop-filter: blur(20px);
+    border-left: 1px solid $color-accent-glow;
+    padding: 6rem 2rem 2rem;
+    gap: 0.5rem;
+    z-index: $z-navbar;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+    &--open { transform: translateX(0); }
+  }
+}
+
+.navbar__drawer-link {
+  font-family: $font-mono;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  color: $color-text-muted;
+  text-decoration: none;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid $color-border;
+  transition: color 0.3s, padding-left 0.3s;
+
+  &:last-child { border-bottom: none; }
+
+  &:hover,
+  &--active {
+    color: $color-accent;
+    padding-left: 0.5rem;
+  }
+}
+
+// ── Backdrop ───────────────────────────────────────────────────────
+.navbar__backdrop {
+  display: none;
+
+  @include tablet {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: $z-navbar - 1;
+    animation: fadeIn 0.3s ease;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}

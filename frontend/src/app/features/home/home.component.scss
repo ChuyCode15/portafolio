@@ -1,0 +1,169 @@
+@use 'styles/abstracts' as *;
+
+.hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: radial-gradient(ellipse at 20% 50%, rgba(17,34,51,0.9) 0%, $color-bg-primary 70%);
+  overflow: hidden;
+  padding: 0 $section-padding-x;
+  @include tablet { padding: 0 1.5rem; }
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    background-image: var(--bg-url);
+    background-size: cover;
+    background-position: center;
+    opacity: 0.08;
+    pointer-events: none;
+  }
+
+  &__orb {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(40px);
+
+    &--teal {
+      top: 20%; right: 15%;
+      width: 320px; height: 320px;
+      background: radial-gradient(circle, rgba(99,225,190,0.12), transparent 70%);
+      @include tablet { width: 180px; height: 180px; }
+    }
+    &--blue {
+      bottom: 25%; left: 5%;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(80,120,255,0.1), transparent 70%);
+      @include tablet { display: none; }
+    }
+  }
+
+  &__content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  &__eyebrow {
+    font-family: $font-mono;
+    color: $color-accent;
+    font-size: 0.85rem;
+    letter-spacing: 4px;
+    margin-bottom: 1.5rem;
+    animation: fadeSlideUp 0.8s ease both;
+  }
+
+  &__name {
+  font-family: $font-display;
+  font-size: clamp(1.8rem, 4.2vw, 4.2rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: $color-text-primary;
+  margin: 0;
+  letter-spacing: -0.5px;
+  animation: fadeSlideUp 0.9s 0.1s ease both;
+  word-break: normal;
+  overflow-wrap: normal;
+  white-space: normal;
+  max-width: 100%;
+
+  &--accent { color: $color-accent; }
+
+  &--outline {
+    -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.3);
+    color: transparent;
+    display: inline;
+  }
+}
+
+  &__desc {
+    font-family: $font-mono;
+    color: $color-text-muted;
+    font-size: clamp(0.7rem, 2.5vw, 1rem);
+    margin-top: 1.5rem;
+    animation: fadeSlideUp 0.9s 0.25s ease both;
+    max-width: 100%;
+    white-space: normal;
+    word-break: break-word;
+    line-height: 1.7;
+  }
+
+  &__cta {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2.5rem;
+    flex-wrap: wrap;
+    animation: fadeSlideUp 0.9s 0.4s ease both;
+  }
+
+  &__tech-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 2rem;
+    animation: fadeSlideUp 0.9s 0.35s ease both;
+  }
+
+  &__tech-badge {
+    font-family: $font-mono;
+    font-size: 0.65rem;
+    padding: 0.3rem 0.8rem;
+    border: 1px solid $color-border-accent-dim;
+    border-radius: $radius-sm;
+    color: $color-accent;
+    background: $color-accent-subtle;
+    letter-spacing: 0.5px;
+  }
+
+  &__socials {
+    display: flex;
+    gap: 1.2rem;
+    margin-top: 2.5rem;
+    animation: fadeSlideUp 0.9s 0.5s ease both;
+  }
+
+  &__social-icon {
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    border: 1px solid $color-accent-dim;
+    display: flex; align-items: center; justify-content: center;
+    color: $color-text-muted;
+    font-size: 1rem;
+    transition: $transition-fast;
+    text-decoration: none;
+    flex-shrink: 0;
+
+    &:hover {
+      border-color: $color-accent;
+      color: $color-accent;
+      box-shadow: 0 0 18px rgba(99,225,190,0.3);
+    }
+  }
+
+  &__scroll {
+    position: absolute;
+    bottom: 3rem; left: 50%;
+    transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    z-index: 2;
+
+    @include tablet { display: none; }
+
+    &-label {
+      font-family: $font-mono;
+      color: rgba(255,255,255,0.3);
+      font-size: 0.65rem;
+      letter-spacing: 3px;
+    }
+
+    &-line {
+      width: 1px; height: 50px;
+      background: linear-gradient(to bottom, $color-accent, transparent);
+      animation: scrollPulse 2s ease infinite;
+    }
+  }
+}

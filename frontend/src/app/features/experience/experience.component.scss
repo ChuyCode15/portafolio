@@ -1,0 +1,167 @@
+@use 'styles/abstracts' as *;
+
+.experience {
+  min-height: 100vh;
+  background: $color-bg-primary;
+  padding: $section-padding-y $section-padding-x;
+  position: relative; overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(to right, transparent, $color-border-accent, transparent);
+  }
+
+  &__container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+    position: relative; z-index: 2;
+  }
+
+  &__timeline {
+    position: relative;
+    padding-left: 2rem;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, $color-accent-dim, $color-border, $color-accent-dim);
+    }
+  }
+
+  &__item {
+    position: relative;
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.7s, transform 0.7s;
+
+    &--visible {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  &__dot {
+    position: absolute;
+    left: -2rem;
+    top: 0.5rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: $color-accent;
+    border: 3px solid $color-bg-primary;
+    box-shadow: 0 0 0 2px $color-accent-dim;
+    z-index: 2;
+  }
+
+  &__card {
+    border: 1px solid $color-border;
+    border-radius: $radius-lg;
+    padding: 1.5rem;
+    background: rgba(255,255,255,0.02);
+    transition: $transition-fast;
+
+    &:hover {
+      border-color: $color-border-accent;
+      background: rgba(109,179,63,0.03);
+    }
+  }
+
+  &__card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 0.3rem;
+  }
+
+  &__role {
+    font-family: $font-display;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: $color-text-primary;
+  }
+
+  &__badge {
+    font-family: $font-mono;
+    font-size: 0.6rem;
+    padding: 0.15rem 0.5rem;
+    border: 1px solid $color-accent;
+    border-radius: $radius-sm;
+    color: $color-accent;
+    letter-spacing: 1px;
+  }
+
+  &__company {
+    display: block;
+    font-family: $font-body;
+    font-size: 0.85rem;
+    color: $color-accent;
+    margin-bottom: 0.2rem;
+  }
+
+  &__date {
+    display: block;
+    font-family: $font-mono;
+    font-size: 0.7rem;
+    color: $color-text-faint;
+    margin-bottom: 0.8rem;
+  }
+
+  &__desc {
+    color: $color-text-muted;
+    font-size: 0.85rem;
+    line-height: 1.7;
+    font-family: $font-body;
+    margin-bottom: 0.8rem;
+  }
+
+  &__achievements {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    margin-bottom: 1rem;
+  }
+
+  &__achievement {
+    font-family: $font-mono;
+    font-size: 0.72rem;
+    color: $color-text-faint;
+    line-height: 1.6;
+  }
+
+  &__tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  &__tech-item {
+    font-family: $font-mono;
+    font-size: 0.6rem;
+    padding: 0.2rem 0.5rem;
+    border: 1px solid $color-border-accent-dim;
+    border-radius: 3px;
+    color: $color-accent;
+    background: $color-accent-subtle;
+  }
+
+  @include tablet {
+    padding: $section-padding-y 1.5rem;
+
+    &__timeline {
+      padding-left: 1.5rem;
+    }
+
+    &__dot {
+      left: -1.5rem;
+      width: 10px;
+      height: 10px;
+    }
+  }
+}

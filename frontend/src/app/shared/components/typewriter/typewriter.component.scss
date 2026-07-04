@@ -1,0 +1,15 @@
+@use 'styles/abstracts' as *;
+
+:host {
+  display: inline;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+.cursor {
+  display: inline-block;
+  color: $color-accent;
+  animation: blink 0.9s step-end infinite;
+  margin-left: 1px;
+}

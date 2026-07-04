@@ -1,0 +1,50 @@
+@if (personal(); as p) {
+  <!-- Background image -->
+  <div class="bg" [style.background-image]="'url(' + heroBg() + ')'"></div>
+
+  <!-- Particle canvas -->
+  <app-particles />
+
+  <!-- Ambient orbs -->
+  <div class="orbTeal"></div>
+  <div class="orbBlue"></div>
+
+  <!-- Main content -->
+  <div class="content">
+    <p class="eyebrow">HELLO, WORLD</p>
+
+    <h3 class="name">
+      {{ p.firstName }}<br />
+      <span class="accent">{{ p.middleName }}</span>
+      <span class="outline">{{ p.lastName }}</span>
+    </h3>
+
+    <p class="desc">
+      <app-typewriter [text]="p.devDesc" />
+    </p>
+
+    <div class="cta">
+      <app-button [href]="p.resumeLink" variant="primary" target="_blank" rel="noopener noreferrer">
+        Download Resume ↗
+      </app-button>
+      <app-button href="#contact" variant="outline">
+        Get In Touch
+      </app-button>
+    </div>
+
+    <div class="socials">
+      @for (s of social(); track s.id) {
+        <a [href]="s.url" target="_blank" rel="noopener noreferrer"
+           class="socialIcon" [attr.aria-label]="s.label">
+          <i [class]="s.icon"></i>
+        </a>
+      }
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="scroll">
+    <span class="scrollLabel">SCROLL</span>
+    <div class="scrollLine"></div>
+  </div>
+}

@@ -1,0 +1,55 @@
+@use 'styles/abstracts' as *;
+
+.footer {
+  background: $color-bg-footer;
+  padding: 2rem $section-padding-x;
+  border-top: 1px solid rgba(99, 225, 190, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  &__logo {
+    font-family: $font-mono;
+    color: $color-accent;
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+
+  &__copy {
+    font-family: $font-body;
+    color: $color-text-dim;
+    font-size: 0.8rem;
+  }
+
+  &__socials {
+    display: flex;
+    gap: 1rem;
+  }
+
+  &__social-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid $color-border;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $color-text-faint;
+    font-size: 0.9rem;
+    transition: $transition-fast;
+    text-decoration: none;
+
+    &:hover {
+      border-color: $color-accent;
+      color: $color-accent;
+    }
+  }
+
+  @include tablet {
+    padding: 2rem 1.5rem;
+    justify-content: center;
+    text-align: center;
+  }
+}

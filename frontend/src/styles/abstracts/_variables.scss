@@ -1,0 +1,40 @@
+// ─── Colours ──────────────────────────────────────────────────────────────────
+$color-bg-primary:        #0a0e17;
+$color-bg-secondary:      #0d1220;
+$color-bg-footer:         #070a12;
+$color-accent:            #6DB33F;
+$color-accent-dim:        rgba(109, 179, 63, 0.25);
+$color-accent-glow:       rgba(109, 179, 63, 0.12);
+$color-accent-subtle:     rgba(109, 179, 63, 0.04);
+$color-text-primary:      #ffffff;
+$color-text-muted:        rgba(255, 255, 255, 0.6);
+$color-text-faint:        rgba(255, 255, 255, 0.4);
+$color-text-dim:          rgba(255, 255, 255, 0.25);
+$color-border:            rgba(255, 255, 255, 0.08);
+$color-border-accent:     rgba(109, 179, 63, 0.4);
+$color-border-accent-dim: rgba(109, 179, 63, 0.15);
+
+// ─── Typography ───────────────────────────────────────────────────────────────
+$font-mono:    'JetBrains Mono', 'Fira Code', 'Space Mono', monospace;
+$font-display: 'Inter', 'Syne', sans-serif;
+$font-body:    'Inter', 'DM Sans', sans-serif;
+
+// ─── Spacing ──────────────────────────────────────────────────────────────────
+$section-padding-x:   6vw;
+$section-padding-y:   7rem;
+$container-max-width: 1200px;
+
+// ─── Radius ───────────────────────────────────────────────────────────────────
+$radius-sm: 4px;
+$radius-md: 8px;
+$radius-lg: 12px;
+
+// ─── Transitions ──────────────────────────────────────────────────────────────
+$transition-fast:   all 0.3s ease;
+$transition-smooth: all 0.4s ease;
+
+// ─── Z-indices ────────────────────────────────────────────────────────────────
+$z-navbar: 100;
+
+// ─── Breakpoints ──────────────────────────────────────────────────────────────
+$bp-tablet: 768px;

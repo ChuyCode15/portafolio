@@ -1,0 +1,33 @@
+@if (data(); as d) {
+  <nav class="navbar" [class.navbar--scrolled]="scrolled()">
+    <a href="#home" class="navbar__logo" (click)="closeMenu()">{{ d.personal.logoText }}</a>
+
+    <div class="navbar__links">
+      @for (link of d.navigation.links; track link) {
+        <a [href]="'#' + link.toLowerCase()" class="navbar__link" (click)="closeMenu()">{{ link }}</a>
+      }
+    </div>
+
+    <button
+      class="navbar__hamburger"
+      [class.navbar__hamburger--open]="menuOpen()"
+      (click)="toggleMenu()"
+      aria-label="Toggle menu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  @if (menuOpen()) {
+    <div class="navbar__drawer">
+      @for (link of d.navigation.links; track link) {
+        <a [href]="'#' + link.toLowerCase()"
+           class="navbar__drawer-link"
+           (click)="closeMenu()">{{ link }}</a>
+      }
+    </div>
+    <div class="navbar__backdrop" (click)="closeMenu()"></div>
+  }
+}

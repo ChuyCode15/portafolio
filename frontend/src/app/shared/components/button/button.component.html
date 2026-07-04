@@ -1,0 +1,10 @@
+<a
+  [href]="href()"
+  [target]="target()"
+  [rel]="rel()"
+  class="btn"
+  [class.primary]="variant() === 'primary'"
+  [class.outline]="variant() === 'outline'"
+>
+  <ng-content />
+</a>

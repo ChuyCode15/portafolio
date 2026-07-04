@@ -1,0 +1,282 @@
+{
+  "personal": {
+    "firstName": "Juan Manuel",
+    "middleName": "",
+    "lastName": "Castillo",
+    "devDesc": "| Java Backend Developer | Spring Boot | Microservicios | APIs REST |",
+    "logoText": "<JMC />",
+    "resumeLink": "/assets/cv-jmc.pdf",
+    "mobileNumber": "+52 55 1234 5678",
+    "emailId": "juan.castillo@email.com",
+    "location": "Ciudad de México, MX"
+  },
+  "social": [
+    {
+      "id": 0,
+      "icon": "fab fa-github",
+      "url": "https://github.com/jmcastillo",
+      "label": "GitHub"
+    },
+    {
+      "id": 1,
+      "icon": "fab fa-linkedin-in",
+      "url": "https://linkedin.com/in/jmcastillo",
+      "label": "LinkedIn"
+    },
+    {
+      "id": 2,
+      "icon": "fab fa-stack-overflow",
+      "url": "https://stackoverflow.com/users/jmcastillo",
+      "label": "Stack Overflow"
+    },
+    {
+      "id": 3,
+      "icon": "fas fa-envelope",
+      "url": "mailto:juan.castillo@email.com",
+      "label": "Email"
+    }
+  ],
+  "hero": {
+    "greeting": "HELLO, WORLD",
+    "typewriterTexts": [
+      "Java Backend Developer",
+      "Spring Boot Specialist",
+      "Microservices Architect",
+      "API Designer",
+      "Cloud Enthusiast"
+    ]
+  },
+  "about": {
+    "heading": "Sobre Mí",
+    "subLabel": "// ABOUT",
+    "description": "Backend Developer con +5 años de experiencia diseñando e implementando APIs REST escalables con Spring Boot. Especializado en arquitecturas limpias, optimización de consultas JPA y microservicios. Apasionado por crear sistemas robustos, bien documentados y con pruebas automatizadas. Creo firmemente en el código limpio, las buenas prácticas y la mejora continua.",
+    "stats": [
+      {
+        "value": "5+",
+        "label": "Años de Experiencia"
+      },
+      {
+        "value": "20+",
+        "label": "Proyectos Entregados"
+      },
+      {
+        "value": "12",
+        "label": "Tecnologías Dominadas"
+      },
+      {
+        "value": "∞",
+        "label": "Commitment to Code"
+      }
+    ]
+  },
+  "skills": [
+    {
+      "category": "Backend Core",
+      "categoryOrder": 1,
+      "items": [
+        { "name": "Java 17/21", "icon": "fab fa-java", "color": "#b07219", "level": 95 },
+        { "name": "Spring Boot", "icon": "fas fa-leaf", "color": "#6DB33F", "level": 92 },
+        { "name": "Spring Security", "icon": "fas fa-shield-alt", "color": "#6DB33F", "level": 88 },
+        { "name": "JPA / Hibernate", "icon": "fas fa-database", "color": "#59666C", "level": 90 },
+        { "name": "REST APIs", "icon": "fas fa-plug", "color": "#E34F26", "level": 95 },
+        { "name": "Spring Cloud", "icon": "fas fa-cloud", "color": "#326CE5", "level": 78 }
+      ]
+    },
+    {
+      "category": "Bases de Datos",
+      "categoryOrder": 2,
+      "items": [
+        { "name": "PostgreSQL", "icon": "fas fa-database", "color": "#336791", "level": 88 },
+        { "name": "MySQL", "icon": "fas fa-database", "color": "#4479A1", "level": 82 },
+        { "name": "MongoDB", "icon": "fas fa-leaf", "color": "#47A248", "level": 65 },
+        { "name": "Redis", "icon": "fas fa-bolt", "color": "#DC382D", "level": 72 }
+      ]
+    },
+    {
+      "category": "DevOps & Cloud",
+      "categoryOrder": 3,
+      "items": [
+        { "name": "Docker", "icon": "fab fa-docker", "color": "#2496ED", "level": 88 },
+        { "name": "Linux", "icon": "fab fa-linux", "color": "#FCC624", "level": 85 },
+        { "name": "Nginx", "icon": "fas fa-server", "color": "#009639", "level": 75 },
+        { "name": "OCI", "icon": "fas fa-cloud", "color": "#F80000", "level": 70 },
+        { "name": "GitHub Actions", "icon": "fab fa-github", "color": "#2088FF", "level": 80 }
+      ]
+    },
+    {
+      "category": "Testing",
+      "categoryOrder": 4,
+      "items": [
+        { "name": "JUnit 5", "icon": "fas fa-vial", "color": "#25A162", "level": 92 },
+        { "name": "Mockito", "icon": "fas fa-robot", "color": "#25A162", "level": 88 },
+        { "name": "Testcontainers", "icon": "fab fa-docker", "color": "#2496ED", "level": 72 },
+        { "name": "Integration Tests", "icon": "fas fa-flask", "color": "#25A162", "level": 85 }
+      ]
+    },
+    {
+      "category": "Frontend",
+      "categoryOrder": 5,
+      "items": [
+        { "name": "Angular", "icon": "fab fa-angular", "color": "#DD0031", "level": 72 },
+        { "name": "TypeScript", "icon": "fab fa-js", "color": "#3178C6", "level": 70 },
+        { "name": "HTML / CSS", "icon": "fab fa-html5", "color": "#E34F26", "level": 68 }
+      ]
+    }
+  ],
+  "projects": {
+    "heading": "Proyectos Destacados",
+    "subLabel": "// PROJECTS",
+    "displayCount": 3,
+    "projects": [
+      {
+        "id": 1,
+        "title": "Sistema de Gestión de Inventarios",
+        "shortDescription": "API REST para inventarios multitienda con Spring Boot, JPA optimizado y caché con Redis.",
+        "fullDescription": "Sistema completo de gestión de inventarios que soporta múltiples tiendas, alertas de stock mínimo y reportes en tiempo real. Implementé arquitectura hexagonal con DTOs, mappers con MapStruct, y manejo global de excepciones. Reduje consultas N+1 en un 60% optimizando queries JPA con fetch joins y caching.",
+        "technologies": ["Java 21", "Spring Boot 3", "JPA", "PostgreSQL", "Redis", "Docker", "MapStruct"],
+        "category": "BACKEND",
+        "featured": true,
+        "githubUrl": "https://github.com/jmcastillo/inventory-api",
+        "demoUrl": "",
+        "imageUrl": "",
+        "metrics": [
+          { "label": "Latencia reducida", "value": "60%" },
+          { "label": "Endpoints REST", "value": "45" },
+          { "label": "Cobertura tests", "value": "92%" }
+        ],
+        "highlights": [
+          "Arquitectura hexagonal con separación de capas",
+          "DTOs con MapStruct",
+          "Manejo global de excepciones con @ControllerAdvice",
+          "Optimización de queries JPA (fetch joins, batch size)",
+          "Caché distribuida con Redis",
+          "Tests de integración con Testcontainers",
+          "Documentación OpenAPI/Swagger"
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Microservicio de Notificaciones",
+        "shortDescription": "Sistema asíncrono de notificaciones email/SMS con RabbitMQ, Resilience4j y Docker.",
+        "fullDescription": "Microservicio desacoplado que procesa notificaciones de forma asíncrona usando RabbitMQ. Implementé circuit breaker con Resilience4j, retry policy y health checks. Desplegado en Docker con comunicación entre servicios vía REST. Incluye plantillas dinámicas de email con Thymeleaf y logs centralizados.",
+        "technologies": ["Java 21", "Spring Boot 3", "RabbitMQ", "Resilience4j", "Docker", "PostgreSQL"],
+        "category": "BACKEND",
+        "featured": true,
+        "githubUrl": "https://github.com/jmcastillo/notification-service",
+        "demoUrl": "",
+        "imageUrl": "",
+        "metrics": [
+          { "label": "Tasa de entrega", "value": "99.5%" },
+          { "label": "Servicios integrados", "value": "3" },
+          { "label": "Disponibilidad", "value": "99.9%" }
+        ],
+        "highlights": [
+          "Arquitectura de microservicios",
+          "Mensajería asíncrona con RabbitMQ",
+          "Circuit Breaker con Resilience4j",
+          "Docker Compose multi-servicio",
+          "Logs centralizados",
+          "Monitoreo con Actuator"
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Task Manager Full-Stack",
+        "shortDescription": "Plataforma colaborativa Angular + Spring Boot con JWT, roles y tablero Kanban.",
+        "fullDescription": "Aplicación full-stack de gestión de tareas con tablero Kanban. Backend con Spring Security + JWT, roles ADMIN/USER. Frontend en Angular 21 con standalone components y signals. Incluye filtros en tiempo real, drag-and-drop y exportación a PDF.",
+        "technologies": ["Java 21", "Spring Boot 3", "Angular 21", "TypeScript", "PostgreSQL", "JWT", "Docker"],
+        "category": "FULLSTACK",
+        "featured": false,
+        "githubUrl": "https://github.com/jmcastillo/task-manager",
+        "demoUrl": "https://task-manager-demo.com",
+        "imageUrl": "",
+        "metrics": [
+          { "label": "Usuarios simultáneos", "value": "100+" },
+          { "label": "Tiempo respuesta", "value": "<200ms" },
+          { "label": "Cobertura tests", "value": "85%" }
+        ],
+        "highlights": [
+          "Full-stack: Angular + Spring Boot",
+          "Autenticación JWT con refresh token",
+          "Roles: ADMIN y USER",
+          "API REST documentada con OpenAPI",
+          "Client generado con OpenAPI Generator"
+        ]
+      }
+    ]
+  },
+  "experience": [
+    {
+      "id": 1,
+      "company": "Empresa Tech S.A.",
+      "role": "Java Backend Developer",
+      "location": "Remoto",
+      "startDate": "2024-01",
+      "endDate": null,
+      "current": true,
+      "description": "Desarrollo y mantenimiento de APIs REST para plataforma de e-commerce con más de 100k usuarios activos.",
+      "achievements": [
+        "Reduje tiempo de respuesta de consultas críticas en un 40% optimizando queries JPA e implementando caché con Redis",
+        "Migré 15 microservicios de monolitos a arquitectura distribuida con Spring Boot y RabbitMQ",
+        "Implementé pipeline CI/CD con GitHub Actions reduciendo tiempo de release de 2 días a 30 minutos",
+        "Lideré la migración de Java 11 a Java 21, eliminando 200+ warnings de deprecación"
+      ],
+      "technologies": ["Java 21", "Spring Boot 3", "Spring Security", "PostgreSQL", "Redis", "Docker", "RabbitMQ"]
+    },
+    {
+      "id": 2,
+      "company": "Startup Innovación",
+      "role": "Backend Developer Jr.",
+      "location": "Ciudad de México",
+      "startDate": "2022-06",
+      "endDate": "2023-12",
+      "current": false,
+      "description": "Desarrollo de APIs REST para aplicación SaaS de gestión empresarial.",
+      "achievements": [
+        "Diseñé e implementé 30+ endpoints REST para el módulo de facturación electrónica",
+        "Aumenté cobertura de tests unitarios del 30% al 85% usando JUnit 5 y Mockito",
+        "Implementé autenticación JWT con refresh tokens y roles de usuario"
+      ],
+      "technologies": ["Java 17", "Spring Boot 2.7", "JPA", "MySQL", "JWT", "JUnit 5"]
+    }
+  ],
+  "contact": {
+    "heading": "Contacto",
+    "subLabel": "// CONTACT",
+    "tagline": "¿Tienes un proyecto en mente o una oportunidad laboral? Estoy siempre abierto a nuevos desafíos y conversaciones interesantes.",
+    "form": {
+      "namePlaceholder": "Tu nombre",
+      "emailPlaceholder": "tu@email.com",
+      "subjectPlaceholder": "Asunto",
+      "messagePlaceholder": "Cuéntame sobre tu proyecto...",
+      "sendText": "Enviar Mensaje",
+      "sendingText": "Enviando...",
+      "successMessage": "¡Mensaje enviado! Te responderé a la brevedad.",
+      "errorMessage": "Error al enviar. Intenta de nuevo o escríbeme directo a juan.castillo@email.com"
+    }
+  },
+  "navigation": {
+    "links": ["Home", "About", "Projects", "Experience", "Contact"],
+    "scrollThreshold": 60
+  },
+  "backgrounds": {
+    "hero": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2340&auto=format&fit=crop",
+    "about": "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?q=80&w=2340&auto=format&fit=crop",
+    "projects": "https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=2340&auto=format&fit=crop",
+    "contact": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1920&q=80"
+  },
+  "languageColors": {
+    "Java": "#b07219",
+    "Kotlin": "#A97BFF",
+    "TypeScript": "#3178c6",
+    "JavaScript": "#f1e05a",
+    "Python": "#3572A5",
+    "Go": "#00ADD8",
+    "Rust": "#DEA584",
+    "Shell": "#89e051",
+    "Dockerfile": "#384d54",
+    "HTML": "#e34c26",
+    "CSS": "#563d7c",
+    "SCSS": "#c6538c"
+  }
+}

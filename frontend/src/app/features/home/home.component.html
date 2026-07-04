@@ -1,0 +1,45 @@
+@if (data(); as d) {
+  <section id="home" class="hero" [style.--bg-url]="'url(' + d.backgrounds.hero + ')'">
+    <div class="hero__bg"></div>
+    <app-particles />
+    <div class="hero__orb hero__orb--teal"></div>
+    <div class="hero__orb hero__orb--blue"></div>
+
+    <div class="hero__content">
+      <p class="hero__eyebrow">{{ d.hero.greeting }}</p>
+      <h1 class="hero__name">
+        {{ d.personal.firstName }}<br />
+        <span class="hero__name--accent">{{ d.personal.lastName }}</span>
+      </h1>
+      <p class="hero__desc">
+        <app-typewriter [texts]="d.hero.typewriterTexts" />
+      </p>
+      <div class="hero__cta">
+        <app-button [href]="'#projects'" variant="primary">
+          Ver Proyectos
+        </app-button>
+        <app-button [href]="d.personal.resumeLink" variant="outline" target="_blank">
+          Descargar CV
+        </app-button>
+      </div>
+      <div class="hero__tech-strip">
+        @for (tech of ['Java', 'Spring Boot', 'Docker', 'PostgreSQL', 'Angular']; track tech) {
+          <span class="hero__tech-badge">{{ tech }}</span>
+        }
+      </div>
+      <div class="hero__socials">
+        @for (s of d.social; track s.id) {
+          <a [href]="s.url" target="_blank" rel="noopener noreferrer"
+             class="hero__social-icon" [attr.aria-label]="s.label">
+            <i [class]="s.icon"></i>
+          </a>
+        }
+      </div>
+    </div>
+
+    <div class="hero__scroll">
+      <span class="hero__scroll-label">SCROLL</span>
+      <div class="hero__scroll-line"></div>
+    </div>
+  </section>
+}

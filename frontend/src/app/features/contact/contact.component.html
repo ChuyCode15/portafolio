@@ -1,0 +1,98 @@
+@if (data(); as d) {
+  <section
+    id="contact"
+    class="contact"
+    appInView
+    (inView)="onInView()"
+    [style.--bg-url]="'url(' + d.backgrounds.contact + ')'"
+  >
+    <div class="contact__bg"></div>
+    <div class="contact__glow"></div>
+    <div class="contact__container">
+      <app-section-header
+        [label]="d.contact.subLabel"
+        title="Let's <span class='accent'>Connect</span>"
+      />
+      <p class="contact__tagline" [class.contact__tagline--visible]="visible()">
+        {{ d.contact.tagline }}
+      </p>
+
+      <form
+        class="contact__form"
+        [class.contact__form--visible]="visible()"
+        (ngSubmit)="submitForm()"
+        #contactForm="ngForm"
+      >
+        @if (status() === 'success') {
+          <div class="contact__success">
+            {{ d.contact.form.successMessage }}
+          </div>
+        }
+
+        @if (status() === 'error') {
+          <div class="contact__error">
+            {{ errorMsg() }}
+          </div>
+        }
+
+        <div class="contact__form-row">
+          <input
+            class="contact__input"
+            [(ngModel)]="form.name"
+            name="name"
+            [placeholder]="d.contact.form.namePlaceholder"
+            [disabled]="status() === 'sending'"
+            required
+          />
+          <input
+            class="contact__input"
+            [(ngModel)]="form.email"
+            name="email"
+            type="email"
+            [placeholder]="d.contact.form.emailPlaceholder"
+            [disabled]="status() === 'sending'"
+            required
+          />
+        </div>
+        <input
+          class="contact__input contact__input--full"
+          [(ngModel)]="form.subject"
+          name="subject"
+          [placeholder]="d.contact.form.subjectPlaceholder"
+          [disabled]="status() === 'sending'"
+          required
+        />
+        <textarea
+          class="contact__textarea"
+          [(ngModel)]="form.message"
+          name="message"
+          rows="5"
+          [placeholder]="d.contact.form.messagePlaceholder"
+          [disabled]="status() === 'sending'"
+          required
+        ></textarea>
+        <button
+          type="submit"
+          class="contact__submit"
+          [disabled]="status() === 'sending' || !contactForm.valid"
+        >
+          @if (status() === 'sending') {
+            {{ d.contact.form.sendingText }}
+          } @else {
+            {{ d.contact.form.sendText }}
+          }
+        </button>
+      </form>
+
+      <div class="contact__socials" [class.contact__socials--visible]="visible()">
+        @for (s of d.social; track s.id) {
+          <a [href]="s.url" target="_blank" rel="noopener noreferrer"
+             class="contact__social-link" [attr.aria-label]="s.label">
+            <i [class]="s.icon"></i>
+            {{ s.label }}
+          </a>
+        }
+      </div>
+    </div>
+  </section>
+}

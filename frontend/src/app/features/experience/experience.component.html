@@ -1,0 +1,50 @@
+@if (data(); as d) {
+  <section
+    id="experience"
+    class="experience"
+    appInView
+    (inView)="onInView()"
+  >
+    <div class="experience__container">
+      <app-section-header
+        label="// EXPERIENCE"
+        title="Work <span class='accent'>Experience</span>"
+      />
+
+      <div class="experience__timeline">
+        @for (exp of d.experience; track exp.id; let i = $index) {
+          <div
+            class="experience__item"
+            [class.experience__item--visible]="visible()"
+            [style.transition-delay]="(i * 0.15) + 's'"
+          >
+            <div class="experience__dot"></div>
+            <div class="experience__card">
+              <div class="experience__card-header">
+                <span class="experience__role">{{ exp.role }}</span>
+                @if (exp.current) {
+                  <span class="experience__badge">Actual</span>
+                }
+              </div>
+              <span class="experience__company">{{ exp.company }} · {{ exp.location }}</span>
+              <span class="experience__date">
+                {{ exp.startDate }} — {{ exp.current ? 'Presente' : exp.endDate }}
+              </span>
+              <p class="experience__desc">{{ exp.description }}</p>
+              <div class="experience__achievements">
+                @for (ach of exp.achievements; track ach) {
+                  <span class="experience__achievement">▹ {{ ach }}</span>
+                }
+              </div>
+              <div class="experience__tech">
+                @for (tech of exp.technologies; track tech) {
+                  <span class="experience__tech-item">{{ tech }}</span>
+                }
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+}
