@@ -4,7 +4,6 @@ import com.makingbigger.portafoliojmc.domain.informacionpersonal.InformacionPers
 import com.makingbigger.portafoliojmc.domain.informacionpersonal.dto.DatosDetalleInformacionPersonal;
 import com.makingbigger.portafoliojmc.domain.redessociales.mapstruct.RedesSocialesMapper;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring", uses = {RedesSocialesMapper.class})
 public interface InformacionPersonalMapper {
