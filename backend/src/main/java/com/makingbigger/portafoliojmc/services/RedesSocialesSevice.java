@@ -3,7 +3,7 @@ package com.makingbigger.portafoliojmc.services;
 import com.makingbigger.portafoliojmc.domain.redessociales.dto.DatosActulizarRedesSociales;
 import com.makingbigger.portafoliojmc.domain.redessociales.dto.DatosDetalleRedesSociales;
 import com.makingbigger.portafoliojmc.domain.redessociales.dto.DatosRegistroRedesSociales;
-import com.makingbigger.portafoliojmc.domain.redessociales.mapstruct.RedesSocialesMapper;
+import com.makingbigger.portafoliojmc.domain.redessociales.redessocialesmapper.RedesSocialesMapper;
 import com.makingbigger.portafoliojmc.infrastructure.exception.ResourceNotFoundException;
 import com.makingbigger.portafoliojmc.infrastructure.helpers.RedesSocialesHelper;
 import com.makingbigger.portafoliojmc.repository.InformacionPersonalRepository;
@@ -37,6 +37,11 @@ public class RedesSocialesSevice {
                 .toList();
     }
 
+    public DatosDetalleRedesSociales BuscarRedPorPlataforma(String plataforma) {
+        var plataformaEncontrada = redesSocialesHelper.buscarRedSocialPlataforma(plataforma);
+        return redesSocialesMapper.toDto(plataformaEncontrada);
+    }
+
     public DatosDetalleRedesSociales registrarNuevaRed(DatosRegistroRedesSociales datos) {
         var nuevaRed = redesSocialesMapper.toNewEntity(datos);
         var perfil = informacionPersonalRepository.findFirstBy()
@@ -49,15 +54,23 @@ public class RedesSocialesSevice {
     @Transactional
     public DatosDetalleRedesSociales actulizarRedSocial(String plataforma, DatosActulizarRedesSociales datos) {
         var redSocial = redesSocialesHelper.buscarRedSocialPlataforma(plataforma);
-        if (!datos.url().isEmpty()&&!datos.icono().isBlank()) {
+        if (datos.url() != null &&!datos.url().isBlank()) {
             redSocial.setUrl(datos.url());
         }
-        if (!datos.icono().isEmpty()&& !datos.icono().isBlank()) {
+        if (datos.icono() != null && !datos.icono().isBlank()) {
             redSocial.setIcono(datos.icono());
         }
-        if (!datos.etiqueta().isEmpty()&&!datos.etiqueta().isBlank()) {
+        if (datos.etiqueta() != null &&!datos.etiqueta().isBlank()) {
             redSocial.setEtiqueta(datos.etiqueta());
         }
         return  redesSocialesMapper.toDto(redSocial);
+    }
+
+    @Transactional
+    public String eliminarRedSocial(String plataforma) {
+        var redSocial = redesSocialesHelper.buscarRedSocialPlataforma(plataforma);
+        redSocial.setActivo(false);
+        var respuesta = "La Red Social para la plataforma: "+ redSocial.getPlataforma().toString() + " fue eliminada con exito.";
+        return respuesta;
     }
 }

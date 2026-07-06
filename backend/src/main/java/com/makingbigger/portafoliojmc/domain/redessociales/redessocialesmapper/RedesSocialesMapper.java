@@ -1,4 +1,4 @@
-package com.makingbigger.portafoliojmc.domain.redessociales.mapstruct;
+package com.makingbigger.portafoliojmc.domain.redessociales.redessocialesmapper;
 
 import com.makingbigger.portafoliojmc.domain.redessociales.RedesSociales;
 import com.makingbigger.portafoliojmc.domain.redessociales.dto.DatosDetalleRedesSociales;

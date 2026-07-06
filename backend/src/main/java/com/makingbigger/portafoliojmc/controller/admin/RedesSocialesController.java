@@ -24,6 +24,12 @@ public class RedesSocialesController {
         return ResponseEntity.ok(listaRedesSociales);
     }
 
+    @GetMapping(path = "/{plataforma}")
+    public ResponseEntity<DatosDetalleRedesSociales> buscarRedSocialPlataforma(@PathVariable String plataforma) {
+        var plataformaEncontrada = redesSocialesSevice.BuscarRedPorPlataforma(plataforma);
+        return  ResponseEntity.ok(plataformaEncontrada);
+    }
+
     @PostMapping
     public ResponseEntity<DatosDetalleRedesSociales> registrarRedSocial(@RequestBody DatosRegistroRedesSociales datos, UriComponentsBuilder builder){
         var nuevaRed = redesSocialesSevice.registrarNuevaRed(datos);
@@ -35,6 +41,12 @@ public class RedesSocialesController {
     public ResponseEntity<DatosDetalleRedesSociales> actulizarRedSocial(@PathVariable String plataforma, @RequestBody DatosActulizarRedesSociales datos) {
         var redActualizadad = redesSocialesSevice.actulizarRedSocial(plataforma, datos);
         return  ResponseEntity.ok(redActualizadad);
+    }
+
+    @DeleteMapping(path = "/{plataforma}")
+    public  ResponseEntity<String> eliminarRedSocial(@PathVariable String plataforma){
+        var redEliminada = redesSocialesSevice.eliminarRedSocial(plataforma);
+        return ResponseEntity.ok().body(redEliminada);
     }
 
 

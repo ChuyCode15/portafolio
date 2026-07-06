@@ -14,13 +14,11 @@ public class InformacionPersonalService {
 
     private final InformacionPersonalMapper informacionPersonalMapper;
 
-
     public DatosDetalleInformacionPersonal buscarInformacionPersonal() {
         return informacionPersonalRepository.findAllWithRedes()
                 .stream()
                 .findFirst()
                 .map(informacionPersonalMapper::toDto)
                 .orElseThrow(() -> new RuntimeException("No encontrado"));
-
     }
 }

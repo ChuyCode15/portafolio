@@ -14,10 +14,10 @@ CREATE TABLE redes_sociales
 );
 
 
-INSERT INTO redes_sociales (id, plataforma, url, icono, etiqueta, informacion_personal_id)
+INSERT INTO redes_sociales (id, plataforma, url, icono, etiqueta, informacion_personal_id, activo)
 VALUES (RANDOM_UUID(), 'GITHUB', 'https://github.com/jmcastillo', 'fab fa-github', 'GitHub',
-        '88888888-8888-8888-8888-888888888888'),
+        '88888888-8888-8888-8888-888888888888', true),
        (RANDOM_UUID(), 'LINKEDIN', 'https://linkedin.com/in/jmcastillo', 'fab fa-linkedin-in', 'LinkedIn',
-        '88888888-8888-8888-8888-888888888888'),
+        '88888888-8888-8888-8888-888888888888', true),
        (RANDOM_UUID(), 'EMAIL', 'mailto:juan@email.com', 'fas fa-envelope', 'Email',
-        '88888888-8888-8888-8888-888888888888');
+        '88888888-8888-8888-8888-888888888888', true);
