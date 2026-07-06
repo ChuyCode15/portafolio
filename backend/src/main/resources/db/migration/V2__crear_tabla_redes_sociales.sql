@@ -6,6 +6,7 @@ CREATE TABLE redes_sociales
     icono                   VARCHAR(100),
     etiqueta                VARCHAR(100),
     informacion_personal_id UUID,
+    activo                  BOOLEAN,
     CONSTRAINT fk_informacion_personal
         FOREIGN KEY (informacion_personal_id)
             REFERENCES informacion_personal (id)

@@ -26,4 +26,6 @@ public class RedesSociales {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "informacion_personal_id")
     private InformacionPersonal perfil;
+
+    private Boolean activo = true;
 }
