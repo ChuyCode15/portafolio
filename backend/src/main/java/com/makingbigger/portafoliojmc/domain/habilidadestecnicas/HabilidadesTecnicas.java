@@ -1,9 +1,18 @@
 package com.makingbigger.portafoliojmc.domain.habilidadestecnicas;
 
 import jakarta.persistence.*;
-import org.springframework.data.annotation.Id;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.UUID;
+
+@Table
+@Entity()
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 
 public class HabilidadesTecnicas {
 

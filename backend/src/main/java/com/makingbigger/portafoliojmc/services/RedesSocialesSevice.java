@@ -63,6 +63,7 @@ public class RedesSocialesSevice {
         if (datos.etiqueta() != null &&!datos.etiqueta().isBlank()) {
             redSocial.setEtiqueta(datos.etiqueta());
         }
+        redesSocialesRepository.save(redSocial);
         return  redesSocialesMapper.toDto(redSocial);
     }
 
@@ -71,6 +72,7 @@ public class RedesSocialesSevice {
         var redSocial = redesSocialesHelper.buscarRedSocialPlataforma(plataforma);
         redSocial.setActivo(false);
         var respuesta = "La Red Social para la plataforma: "+ redSocial.getPlataforma().toString() + " fue eliminada con exito.";
+        redesSocialesRepository.save(redSocial);
         return respuesta;
     }
 }

@@ -1,6 +1,5 @@
 package com.makingbigger.portafoliojmc.services;
 
-import com.makingbigger.portafoliojmc.domain.habilidadestecnicas.HabilidadesTecnicasCategoria;
 import com.makingbigger.portafoliojmc.domain.habilidadestecnicas.HabilidadesTecnicasMapper.HabilidadesTecnicasCategoriaMapper;
 import com.makingbigger.portafoliojmc.domain.habilidadestecnicas.HabilidadesTecnicasMapper.HabilidadesTecnicasMapper;
 import com.makingbigger.portafoliojmc.domain.habilidadestecnicas.dto.DatosDetalleHabilidadesTecnicasCategoria;
@@ -25,12 +24,10 @@ public class HabilidadesTecnicasService {
 
     public List<DatosDetalleHabilidadesTecnicasCategoria> listarHabilidades() {
 
-        var listaHabilidadesTecnicas = habilidadesTecnicasCategoriaRepository.findAllWhitHabilidadesTecnicasAndActivoTrue()
+        return habilidadesTecnicasCategoriaRepository.findAllWhitHabilidadesTecnicasAndActivoTrue()
                 .stream()
                 .map(habilidadesTecnicasCategoriaMapper::toDto)
                 .toList();
-        return listaHabilidadesTecnicas;
-
-    }
+            }
 
 }

@@ -1,10 +1,19 @@
 package com.makingbigger.portafoliojmc.domain.habilidadestecnicas;
 
 import jakarta.persistence.*;
-import org.springframework.data.annotation.Id;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 import java.util.UUID;
+
+@Table(name = "")
+@Entity
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 
 public class HabilidadesTecnicasCategoria {
 
@@ -19,5 +28,7 @@ public class HabilidadesTecnicasCategoria {
 
     @OneToMany(mappedBy = "categoriDeHabilidades", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<HabilidadesTecnicas> items;
+
+    private Boolean activo = true;
 
 }

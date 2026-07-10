@@ -19,8 +19,7 @@ public class HabilidadesTecnicasController {
 
     @GetMapping
     public ResponseEntity<List<DatosDetalleHabilidadesTecnicasCategoria>> getHabilidades() {
-        var listaHabilidades = habilidadesTecnicasService.listarHabilidades();
-        return ResponseEntity.ok().body(listaHabilidades);
+        return ResponseEntity.ok(habilidadesTecnicasService.listarHabilidades());
     }
 
 }
