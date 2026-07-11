@@ -17,7 +17,12 @@ import static org.assertj.core.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.util.Assert;
 
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.BDDMockito.given;
 
 
 @ExtendWith(MockitoExtension.class)
@@ -43,34 +48,49 @@ class RedesSocialesSeviceTest {
         var redSocial = new RedesSociales();
         redSocial.setPlataforma("GITHUB");
 
+        var listMock = List.of(redSocial);
         var dtoEsperado = new DatosDetalleRedesSociales(
                 "GITHUB", "https://github.com/jmcastillo",
                 "fab fa-github", "GitHub"
         );
 
+        given(redesSocialesRepository.findAll()).willReturn(listMock);
+        given(redesSocialesMapper.toDto(redSocial)).willReturn(dtoEsperado);
 
-    }
+        var resultado = redesSocialesSevice.listarRedes();
+        assertThat(resultado)
+                .isNotEmpty()
+                .hasSize(1);
 
-
-    @Test
-    void listarRedes() {
-
-
-    }
-
-    @Test
-    void buscarRedPorPlataforma() {
-    }
-
-    @Test
-    void registrarNuevaRed() {
+        assertThat(resultado.get(0).plataforma()).isEqualTo("GITHUB");
+        assertThat(resultado.get(0).url()).isEqualTo("https://github.com/jmcastillo");
     }
 
     @Test
-    void actulizarRedSocial() {
+    void listarRedes_cuandoNoExisten_retornaListaVacia() {
+        given(redesSocialesRepository.findAll()).willReturn(Collections.emptyList());
+        var resultado = redesSocialesSevice.listarRedes();
+        assertThat(resultado).isEmpty();
     }
 
     @Test
-    void eliminarRedSocial() {
+    void buscarRedPorPlataforma_cuandoExiste_retornaRed() {
+        var redSocial = new RedesSociales();
+        redSocial.setPlataforma("GITHUB");
+
+        var dtoEsperado = new DatosDetalleRedesSociales(
+                "GITHUB", "https://github.com/jmcastillo",
+                "fab fa-github", "GitHub"
+        );
+
+        given(redesSocialesHelper.buscarRedSocialPlataforma("GITHUB"))
+                .willReturn(redSocial);
+        given(redesSocialesMapper.toDto(redSocial)).willReturn(dtoEsperado);
+
+        var resultado = redesSocialesSevice.BuscarRedPorPlataforma("GITHUB");
+
+        assertThat(resultado.plataforma()).isEqualTo("GITHUB");
+        assertThat(resultado.url()).isEqualTo("https://github.com/jmcastillo");
     }
+    
 }
