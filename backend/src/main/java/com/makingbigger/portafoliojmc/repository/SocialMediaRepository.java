@@ -1,0 +1,11 @@
+package com.makingbigger.portafoliojmc.repository;
+
+import com.makingbigger.portafoliojmc.domain.socialmedia.SocialMedia;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.Optional;
+import java.util.UUID;
+
+public interface SocialMediaRepository extends JpaRepository<SocialMedia, UUID> {
+    Optional<SocialMedia> findByPlatformAndActiveTrue(String platform);
+}

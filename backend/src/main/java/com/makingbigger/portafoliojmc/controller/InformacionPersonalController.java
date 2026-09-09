@@ -1,7 +1,7 @@
 package com.makingbigger.portafoliojmc.controller;
 
-import com.makingbigger.portafoliojmc.domain.informacionpersonal.dto.DatosDetalleInformacionPersonal;
-import com.makingbigger.portafoliojmc.services.InformacionPersonalService;
+import com.makingbigger.portafoliojmc.domain.personalinfo.dto.PersonalInfoDetailDto;
+import com.makingbigger.portafoliojmc.services.PersonalInfoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,11 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 public class InformacionPersonalController {
 
-    private final InformacionPersonalService informacionPersonalService;
+    private final PersonalInfoService personalInfoService;
 
     @GetMapping
-    public ResponseEntity<DatosDetalleInformacionPersonal> getInformacionPersonal(){
-        var datosInformacionPersonal = informacionPersonalService.buscarInformacionPersonal();
+    public ResponseEntity<PersonalInfoDetailDto> getInformacionPersonal(){
+        var datosInformacionPersonal = personalInfoService.findPersonalInfo();
         return ResponseEntity.ok(datosInformacionPersonal);
     }
 

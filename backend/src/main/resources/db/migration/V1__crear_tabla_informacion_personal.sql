@@ -1,30 +1,30 @@
-CREATE TABLE informacion_personal
+CREATE TABLE personal_info
 (
-    id                 UUID DEFAULT RANDOM_UUID() PRIMARY KEY,
-    nombre             VARCHAR(255) NOT NULL,
-    apellido           VARCHAR(255) NOT NULL,
-    titulo             VARCHAR(255),
-    subtitulo          VARCHAR(255),
-    resumen            TEXT,
-    correo_electronico VARCHAR(255),
-    telefono           VARCHAR(20),
-    ubicacion          VARCHAR(255),
-    url_foto           VARCHAR(255),
-    url_cv             VARCHAR(255),
-    disponibilidad     VARCHAR(100)
+    id            UUID DEFAULT RANDOM_UUID() PRIMARY KEY,
+    first_name    VARCHAR(255) NOT NULL,
+    last_name     VARCHAR(255) NOT NULL,
+    title         VARCHAR(255),
+    subtitle      VARCHAR(255),
+    summary       TEXT,
+    email         VARCHAR(255),
+    phone         VARCHAR(20),
+    location      VARCHAR(255),
+    photo_url     VARCHAR(255),
+    cv_url        VARCHAR(255),
+    availability  VARCHAR(100)
 );
 
-INSERT INTO informacion_personal (id, nombre, apellido, titulo, subtitulo, resumen, correo_electronico, telefono,
-                                  ubicacion, url_foto, url_cv, disponibilidad)
+INSERT INTO personal_info (id, first_name, last_name, title, subtitle, summary, email, phone,
+                           location, photo_url, cv_url, availability)
 VALUES ('88888888-8888-8888-8888-888888888888',
         'Juan Manuel',
         'Castillo',
         'Java Backend Developer',
-        'Spring Boot | Microservicios | Cloud',
-        'Backend Developer con experiencia en diseño e implementación de APIs REST.',
+        'Spring Boot | Microservices | Cloud',
+        'Backend Developer experienced in designing and implementing REST APIs.',
         'juan@email.com',
         '+52 55 1234 5678',
-        'Ciudad de México, MX',
+        'Mexico City, MX',
         '/assets/images/profile.jpg',
         '/api/v1/cv/download',
         'Freelance');
