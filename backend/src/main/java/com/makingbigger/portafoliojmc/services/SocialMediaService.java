@@ -55,7 +55,9 @@ public class SocialMediaService {
 
     @Transactional
     public SocialMediaDetailDto updateSocialMedia(String platform, SocialMediaUpdateDto dto) {
+
         var socialMedia = socialMediaHelper.findSocialMediaByPlatform(platform);
+        
         if (dto.url() != null && !dto.url().isBlank()) {
             socialMedia.setUrl(dto.url());
         }
