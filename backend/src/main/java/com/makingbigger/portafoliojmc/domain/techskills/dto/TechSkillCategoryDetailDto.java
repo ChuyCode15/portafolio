@@ -1,6 +1,5 @@
 package com.makingbigger.portafoliojmc.domain.techskills.dto;
 
-
 import java.util.List;
 import java.util.UUID;
 
