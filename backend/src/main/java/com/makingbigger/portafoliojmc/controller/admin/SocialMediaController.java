@@ -4,6 +4,7 @@ import com.makingbigger.portafoliojmc.domain.socialmedia.dto.SocialMediaDetailDt
 import com.makingbigger.portafoliojmc.domain.socialmedia.dto.SocialMediaRegisterDto;
 import com.makingbigger.portafoliojmc.domain.socialmedia.dto.SocialMediaUpdateDto;
 import com.makingbigger.portafoliojmc.services.SocialMediaService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -31,7 +32,7 @@ public class SocialMediaController {
     }
 
     @PostMapping
-    public ResponseEntity<SocialMediaDetailDto> registerSocialMedia(@RequestBody SocialMediaRegisterDto dto, UriComponentsBuilder builder) {
+    public ResponseEntity<SocialMediaDetailDto> registerSocialMedia(@RequestBody @Valid SocialMediaRegisterDto dto, UriComponentsBuilder builder) {
         var newSocialMedia = socialMediaService.registerSocialMedia(dto);
         var uri = builder.path("/admin/social-media/{platform}")
                 .buildAndExpand(newSocialMedia.platform())
@@ -40,7 +41,7 @@ public class SocialMediaController {
     }
 
     @PatchMapping(path = "/{platform}")
-    public ResponseEntity<SocialMediaDetailDto> updateSocialMedia(@PathVariable String platform, @RequestBody SocialMediaUpdateDto dto) {
+    public ResponseEntity<SocialMediaDetailDto> updateSocialMedia(@PathVariable @Valid String platform, @RequestBody SocialMediaUpdateDto dto) {
         var updatedSocialMedia = socialMediaService.updateSocialMedia(platform, dto);
         return ResponseEntity.ok(updatedSocialMedia);
     }

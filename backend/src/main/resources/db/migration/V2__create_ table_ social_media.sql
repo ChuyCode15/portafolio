@@ -1,7 +1,7 @@
 CREATE TABLE social_media
 (
     id               UUID DEFAULT RANDOM_UUID() PRIMARY KEY,
-    platform         VARCHAR(100) NOT NULL,
+    platform         VARCHAR(100) NOT NULL UNIQUE,
     url              VARCHAR(255) NOT NULL,
     icon             VARCHAR(100),
     label            VARCHAR(100),

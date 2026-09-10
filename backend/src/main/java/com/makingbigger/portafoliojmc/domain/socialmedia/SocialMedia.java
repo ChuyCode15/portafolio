@@ -18,6 +18,7 @@ public class SocialMedia {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
+    @Column(nullable = false, unique = true)
     private String platform;
     private String url;
     private String icon;

@@ -43,7 +43,9 @@ public class SocialMediaService {
     }
 
     public SocialMediaDetailDto registerSocialMedia(SocialMediaRegisterDto dto) {
-        var newSocialMedia = socialMediaMapper.toNewEntity(dto);
+        var socialMediaNormalized = socialMediaHelper.socialMediaNormalized(dto.platform());
+
+        var newSocialMedia = socialMediaMapper.toNewEntityPlatformN(dto, socialMediaNormalized);
         var personalInfo = personalInfoRepository.findFirstBy()
                 .orElseThrow(() -> new ResourceNotFoundException("Profile not found"));
         newSocialMedia.setPersonalInfo(personalInfo);

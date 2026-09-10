@@ -14,6 +14,9 @@ public interface SocialMediaMapper {
 
     SocialMedia toNewEntity(SocialMediaRegisterDto datos);
 
+    @Mapping(target = "platform", source = "platform")
+    SocialMedia toNewEntityPlatformN(SocialMediaRegisterDto datos, String platform);
+
     @Mapping(target = "personalInfo", ignore = true)
     SocialMedia toEntity(SocialMediaDetailDto dto);
 

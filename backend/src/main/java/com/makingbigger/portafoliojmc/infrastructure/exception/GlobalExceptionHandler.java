@@ -1,10 +1,10 @@
 package com.makingbigger.portafoliojmc.infrastructure.exception;
 
 import com.makingbigger.portafoliojmc.infrastructure.exception.dto.ErrorDetails;
-import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.NoHandlerFoundException;
@@ -106,16 +106,20 @@ public class GlobalExceptionHandler {
         return  new ResponseEntity<>(error, HttpStatus.METHOD_NOT_ALLOWED);
     }
 
-    @ExceptionHandler(DataAccessException.class)
-    public ResponseEntity<ErrorDetails> handleDatabaseException(DataAccessException ex) {
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<ErrorDetails> handleValidationExceptions(MethodArgumentNotValidException ex) {
+
+        String allErrorMessage = ex.getBindingResult().getFieldErrors().stream()
+                .map(error -> error.getField() + ": " + error.getDefaultMessage())
+                .collect(java.util.stream.Collectors.joining(", "));
+
         ErrorDetails error = new ErrorDetails(
                 LocalDateTime.now(),
-                HttpStatus.INTERNAL_SERVER_ERROR.value(),
-                "Error de acceso o persistencia en la base de datos"
+                HttpStatus.BAD_REQUEST.value(),
+                allErrorMessage
         );
-        return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
     }
-
 
 
 }
