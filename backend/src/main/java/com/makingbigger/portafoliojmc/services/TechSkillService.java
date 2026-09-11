@@ -2,7 +2,7 @@ package com.makingbigger.portafoliojmc.services;
 
 import com.makingbigger.portafoliojmc.domain.techskills.techskillsmapper.TechSkillCategoryMapper;
 import com.makingbigger.portafoliojmc.domain.techskills.dto.TechSkillCategoryDetailDto;
-import com.makingbigger.portafoliojmc.repository.techSkillCategoryRepository;
+import com.makingbigger.portafoliojmc.repository.TechSkillCategoryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,7 +13,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class TechSkillService {
 
-    private final techSkillCategoryRepository techSkillCategoryRepository;
+    private final TechSkillCategoryRepository techSkillCategoryRepository;
 
     private final TechSkillCategoryMapper techSkillCategoryMapper;
 
