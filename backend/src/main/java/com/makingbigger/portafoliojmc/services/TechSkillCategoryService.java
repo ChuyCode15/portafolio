@@ -5,6 +5,7 @@ import com.makingbigger.portafoliojmc.domain.techskills.techskillsmapper.TechSki
 import com.makingbigger.portafoliojmc.repository.TechSkillCategoryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -14,8 +15,13 @@ public class TechSkillCategoryService {
 
     private  final TechSkillCategoryRepository techSkillCategoryRepository;
 
+    private final  TechSkillCategoryMapper techSkillCategoryMapper;
+
+    @Transactional(readOnly = true)
     public List<TechSkillCategoryDetailDto> getListTechSkillCategory() {
-        var list = techSkillCategoryRepository.findAllWithActiveSkills().stream()
-                .map(techSkillCategory -> TechSkillCategoryMapper);
+        return techSkillCategoryRepository.findAllWithActiveSkills()
+                .stream()
+                .map(techSkillCategoryMapper::toDto)
+                .toList();
     }
 }

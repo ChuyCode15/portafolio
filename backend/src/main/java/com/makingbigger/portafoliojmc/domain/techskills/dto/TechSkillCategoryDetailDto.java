@@ -10,7 +10,4 @@ public record TechSkillCategoryDetailDto(
         Integer categoryOrder,
         List<TechSkillDetailDto> skills
 ) {
-    public TechSkillCategoryDetailDto() {
-
-    }
 }
